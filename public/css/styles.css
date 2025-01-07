@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+    font-family: "Caveat", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: rgb(33, 35, 43);
+    color: whitesmoke;
+    margin: 1.5rem;
+}
+
+h1{
+    font-size: 4rem;
+    margin-top: 4rem;
+}
+
+h2{
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+
+#main-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.jokes-section{
+    background-color: gray;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    margin: 1rem;
+    border-radius: 0.75rem;
+    flex: 1;
+    transition: flex 1.5s;
+}
+
+.jokes-section:hover{
+    flex: 2.5;
+}
