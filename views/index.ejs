@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/joking.png">
     <title>Jowker</title>
   </head>
   <body>
@@ -34,21 +35,24 @@
       <div id="query-joke-section" class="jokes-section">
         <div id="query-inner-div">
           <h2>Tell Me A Joke But...</h2>
-          <form action="/query-joke" method = "POST">
+          <form action="/query-joke" method="POST">
+            <!-- Joke Category -->
             <label for="joke-category">Category</label>
             <select id="joke-category" name="jokeCategory">
-              <option value="Programming">Programming</option>
+              <option class='option-0' value="Programming">Programming</option>
               <option value="Misc">Misc</option>
               <option value="Dark">Dark</option>
               <option value="Pun">Pun</option>
               <option value="Spooky">Spooky</option>
               <option value="Christmas">Christmas</option>
             </select><br>
+            <!-- Joke Type -->
             <label for="joke-type">Type</label>
             <select id="joke-type" name="jokeType">
               <option value="single">Single</option>
               <option value="twopart">Two-part</option>
             </select><br>
+            <!-- Joke Flags -->
             <p>Do not include jokes that are:</p>
             <div id="flagsCheckboxes">
               <input type="checkbox" id="nsfw" name="blacklistFlags" value="nsfw">
@@ -67,12 +71,14 @@
             <input class="go-btn" type="submit" value="Go" />
           </form>
           <% if (locals.queryJokes) { %>
-            <% if(queryJokes.joke) { %>
-              <h3><%= queryJokes.joke %></h3>
-            <% } if (queryJokes.setup && queryJokes.delivery) { %>
-              <h3><%= queryJokes.setup %><br><%= queryJokes.delivery %></h3>
-          <% }} %>
-      </div>
+              <% if(queryJokes.joke) { %>
+                <h3><%= queryJokes.joke %></h3>
+              <% } if (queryJokes.setup && queryJokes.delivery) { %>
+                <h3><%= queryJokes.setup %><br><%= queryJokes.delivery %></h3>
+              <% }} else { %>
+              <h3>No Jokes Here</h3>
+          <% } %>
+        </div>
       </div>
     </div>
     <footer>

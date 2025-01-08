@@ -37,7 +37,6 @@ app.post("/query-joke", async(req, res)=>{
     var jokeCategory = req.body.jokeCategory;
     var jokeType = req.body.jokeType;
     var jokeBlacklistFlags = req.body.blacklistFlags;
-
     try{
         var content = await axios.get(API_URL + jokeCategory, {
             params: {

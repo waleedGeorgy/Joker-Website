@@ -4,12 +4,13 @@ body{
     font-style: normal;
     background-color: rgb(33, 35, 43);
     color: white;
-    margin: 4rem 1.5rem 0 1.5rem;
+    margin: 2.5rem 0 0 0;
 }
 
 h1{
     font-size: 3.5em;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+    transition: font-size 1s;
 }
 
 h2{
@@ -40,22 +41,21 @@ h2{
 
 #random-inner-div h3{
     margin-top: 0;
-    margin-bottom: 0;
     font-size: 1.75rem;
     font-weight: 100;
-    padding-top: 0;
     line-height: 2.2rem;
+    background-color: rgb(38, 38, 38);
 }
 
 #random-inner-div p{
     margin-bottom: 0;
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-size: 1.25rem;
     font-weight: 600;
 }
 
 #random-inner-div{
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(40px);
 }
 
 #query-joke-section{
@@ -68,6 +68,40 @@ h2{
     backdrop-filter: blur(50px);
 }
 
+#query-inner-div h2 {
+    padding: 1rem;
+}
+
+#query-inner-div p {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 0.25rem;
+}
+
+#query-inner-div h3 {
+    margin-top: 0;
+    font-size: 1.75rem;
+    font-weight: 100;
+    line-height: 2.2rem;
+    background-color: rgb(38, 38, 38);
+}
+
+label{
+    font-weight: bold;
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+}
+
+select{
+    font-size: 1.1rem;
+    font-family: "Atma", serif;
+}
+
+.option-0:hover{
+    background-color: greenyellow;
+}
+
 .go-btn{
     background-color: rgb(38, 38, 38);
     font-family: "Atma", serif;
@@ -78,10 +112,9 @@ h2{
     border: 0;
     border-radius: 5px;
     min-width: 20%;
-    margin-top: 1rem;
-    transition: background-color 1s;
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
-    margin-top: 0;
+    transition: background-color 1s;
 }
 
 input:hover{
@@ -97,11 +130,16 @@ input:hover{
     column-gap: 0.1rem;
 }
 
+#flagsCheckboxes label{
+    font-weight: 100;
+    margin-left: 0;
+}
+
 .jokes-section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 30rem;
+    min-height: 32rem;
     flex: 1;
     transition: flex 2s;
 }
@@ -120,5 +158,5 @@ footer p {
 }
 
 footer p > a {
-    color: #adff2f;
+    color: rgb(148, 247, 242);
 }
