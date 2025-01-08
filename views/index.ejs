@@ -6,60 +6,78 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
-    <title>Your Joker Name</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atma:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Jowker</title>
   </head>
   <body>
     <h1>Would You Like To Hear A Joke?</h1>
     <div id="main-container">
-      <div id = "random-joke-section" class="jokes-section">
-        <h2>Tell Me A Random Joke</h2>
-        <form action="/random-joke" method = "POST">
-          <input type="submit" value="Go!" />
-        </form>
-        <% if (locals.jokes) { %>
-          <h2><%= jokes.category %></h2>
-          <h2><%= jokes.type %></h2>
-          <% if(jokes.joke) { %>
-            <h3><%= jokes.joke %></h3>
-            <% } else { %>
-              <p>Waiting for API</p>
-          <% } if (jokes.setup && jokes.delivery) { %>
-            <h3><%= jokes.setup %><br><%= jokes.delivery %></h3>
-          <% }} else { %>
-          <p>Waiting for API</p>
-        <% } %>
+
+      <!-- Left section -->
+      <div id="random-joke-section" class="jokes-section">
+        <div id="random-inner-div">
+          <h2>Tell Me A Random Joke</h2>
+          <form action="/random-joke" method = "GET">
+            <input class="go-btn" type="submit" value="Go" />
+          </form>
+          <% if (locals.jokes) { %>
+            <p>Here's a <span><%= jokes.category %></span> joke for you</p>
+            <% if(jokes.joke) { %>
+              <h3><%= jokes.joke %></h3>
+            <% } if (jokes.setup && jokes.delivery) { %>
+              <h3><%= jokes.setup %><br><%= jokes.delivery %></h3>
+          <% }} %>
+        </div>
       </div>
-      <div id = "query-joke-section" class="jokes-section">
-        <h2>Tell Me A Joke But...</h2>
-        <form action="/query-joke" method = "POST">
-          <label for="joke-category">Category</label>
-          <select id="joke-category" name="jokeCategory">
-            <option value="Programming">Programming</option>
-            <option value="Misc">Misc</option>
-            <option value="Dark">Dark</option>
-            <option value="Pun">Pun</option>
-            <option value="Spooky">Spooky</option>
-            <option value="Christmas">Christmas</option>
-          </select><br>
-          <label for="joke-type">Type</label>
-          <select id="joke-type" name="jokeType">
-            <option value="single">Single</option>
-            <option value="twopart">Two-part</option>
-          </select><br>
-          <input type="submit" value="Go!" />
-        </form>
-        <% if (locals.queryJokes) { %>
-          <% if(queryJokes.joke) { %>
-            <h3><%= queryJokes.joke %></h3>
-            <% } else { %>
-              <p>Waiting for API</p>
-          <% } if (queryJokes.setup && queryJokes.delivery) { %>
-            <h3><%= queryJokes.setup %><br><%= queryJokes.delivery %></h3>
-          <% }} else { %>
-          <p>Waiting for API</p>
-        <% } %>
+
+      <!-- Right section -->
+      <div id="query-joke-section" class="jokes-section">
+        <div id="query-inner-div">
+          <h2>Tell Me A Joke But...</h2>
+          <form action="/query-joke" method = "POST">
+            <label for="joke-category">Category</label>
+            <select id="joke-category" name="jokeCategory">
+              <option value="Programming">Programming</option>
+              <option value="Misc">Misc</option>
+              <option value="Dark">Dark</option>
+              <option value="Pun">Pun</option>
+              <option value="Spooky">Spooky</option>
+              <option value="Christmas">Christmas</option>
+            </select><br>
+            <label for="joke-type">Type</label>
+            <select id="joke-type" name="jokeType">
+              <option value="single">Single</option>
+              <option value="twopart">Two-part</option>
+            </select><br>
+            <p>Do not include jokes that are:</p>
+            <div id="flagsCheckboxes">
+              <input type="checkbox" id="nsfw" name="blacklistFlags" value="nsfw">
+              <label for="nsfw">NSFW</label><br>
+              <input type="checkbox" id="religious" name="blacklistFlags" value="religious">
+              <label for="religious">Religious</label><br>
+              <input type="checkbox" id="political" name="blacklistFlags" value="political">
+              <label for="political">Political</label><br>
+              <input type="checkbox" id="racist" name="blacklistFlags" value="racist">
+              <label for="racist">Racist</label><br>
+              <input type="checkbox" id="sexist" name="blacklistFlags" value="sexist">
+              <label for="sexist">Sexist</label><br>
+              <input type="checkbox" id="explicit" name="blacklistFlags" value="explicit">
+              <label for="explicit">Explicit</label><br>
+            </div>
+            <input class="go-btn" type="submit" value="Go" />
+          </form>
+          <% if (locals.queryJokes) { %>
+            <% if(queryJokes.joke) { %>
+              <h3><%= queryJokes.joke %></h3>
+            <% } if (queryJokes.setup && queryJokes.delivery) { %>
+              <h3><%= queryJokes.setup %><br><%= queryJokes.delivery %></h3>
+          <% }} %>
+      </div>
       </div>
     </div>
+    <footer>
+      <p>Powered by <a href="https://v2.jokeapi.dev/">JokeAPI</a></p>
+      <p>© Waleed Georgy 2024</p>
+    </footer>
   </body>
 </html>
